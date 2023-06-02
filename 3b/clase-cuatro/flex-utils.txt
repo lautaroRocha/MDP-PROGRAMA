@@ -1,0 +1,3 @@
+guía MDN flexbox ---> https://developer.mozilla.org/es/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox
+
+flexbox froggy (juego web para aprender flex) ---> https://flexboxfroggy.com/#es

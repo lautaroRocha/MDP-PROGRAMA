@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/styles.css">
+
+    <!-- <style>
+        /* la etiqueta estilo a nosotros nos permite escribir CSS en su sintaxis
+            SINTAXIS : 
+            selector {
+                propiedad : valor ;
+            }
+
+
+            (seguimos en autor)
+        */
+        footer {
+            background-color: plum;
+            color: whitesmoke;
+            text-align: center;
+        }
+        article {
+            background-color: rgb(189, 243, 243);
+            text-align: center;
+        }
+        img {
+            width: 350px;
+        }
+    </style> -->
+    <title>Libros</title>
+</head>
+<body>
+    <header>
+        <h1>Libros</h1>
+        <nav>
+            <ul>
+                <li>
+                    <a href="../index.html">Home</a>
+                </li>
+                <li>
+                    <a href="#">Libros</a>
+                </li>
+                <li>
+                    <a href="./autor.html">Autor</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <!-- as etiquetas semánticas ARTICLE y SECTION -->
+    <main>
+        <section>
+            <article>
+                <!-- FIGURE y FIGURE CAPTION 
+                    figure es una caja que va a encerrar a una iamgen y su descripcion
+                    su descripción va en figure caption
+                -->
+                <figure>
+                    <img src="../assets/libro-1.jpg" alt="libro-uno-portada">
+                    <figcaption>
+                        Libro 1 - El camino de los Reyes
+                    </figcaption>
+                </figure>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga eum quod, mollitia asperiores, enim odio suscipit officia deserunt quis assumenda, reiciendis dolorem cupiditate autem porro.
+                </p>
+            </article>
+            <article>
+                <!-- FIGURE y FIGURE CAPTION -->
+                <figure>
+                    <img src="../assets/libro-2.jpg" alt="libro-dos-portada">
+                    <figcaption>
+                        Libro 2 - Palabras Radiantes
+                    </figcaption>
+                </figure>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga eum quod, mollitia asperiores, enim odio suscipit officia deserunt quis assumenda, reiciendis dolorem cupiditate autem porro.
+                </p>
+            </article>
+        </section>
+    </main>
+    <footer>
+        2023 todos los derechos reservados comisión 3B
+    </footer>
+</body>
+</html>

@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: 0;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.grid{
+    margin-top: 5rem;
+    border: 2px solid black;
+    width: fit-content;
+    display: grid;
+    grid-template-columns: 12rem 24rem 12rem;
+    grid-template-rows: 6rem 12rem 6rem;
+    background-color: rgba(0, 128, 0, 0.49);
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.grid-item{
+    border: 2px solid green;
+    transition: all .5s ease-in-out;
+}
+
+.grid>div{
+    display: grid;
+    place-items: center;
+    caret-color: transparent;
+    cursor: crosshair;
+}
+
+.grid-item:hover{
+    background-color: yellowgreen;
+    font-size: 5rem;
+}

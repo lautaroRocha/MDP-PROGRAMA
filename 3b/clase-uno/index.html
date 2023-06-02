@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<!-- 
+    Las etiquetas, mayormente, abren y cierran
+    Tienen atributos, que usamos para expandir
+    su funcionalidad o brindar más información sobre su uso
+    Ctrl+k+c --- comentar
+    Ctrl+k+u --- descomentar
+-->
+<html lang="es">
+    <!-- Las etiquetas dentro de otras
+    se consideran HIJOS
+    en este caso, head y body son HIJOS de HTML 
+    -->
+    <head>
+        <!-- METADATA
+            INformación que NO VE EL USUARIO
+            pero es útil para el navegador y los buscadores
+        -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mi primer página web</title>
+    </head>
+    <body>
+        <!-- CONTENIDO -->
+        <!-- TODO el contenido tiene que 
+        estar adentro de una etiqueta  -->
+        <!-- ETQUETAS DE TITULO -->
+        <!-- <h1>Título</h1>
+        <h2>Título</h2>
+        <h3>Título</h3>   
+        <h4>Título</h4>
+        <h5>Título</h5>
+        <h6>Título</h6> -->
+        <!-- TEXTO -->
+        <!-- a mayoría de las etiquetas
+        se comportan como BLOQUES -->
+        <p id="primer">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates id ut, nam magni consectetur expedita!</p><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum, laboriosam!</p>
+        <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates id ut, nam magni consectetur expedita!
+        </p>
+        <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates <i>negrita</i> id ut, nam magni consectetur expedita!
+        </p>
+        <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates <span>SOY UNA LÏNEA</span>
+            id ut, nam magni consectetur expedita!
+        </p>
+
+        <!-- ETIQUETA CONTENEDOR -->
+        <div>
+            <h1 >título</h1>
+            <p >Soy un párrafo</p>
+        </div>
+
+        <!-- ETIQUETAS DE INPUT Y BOTONES -->
+
+        <!-- etiqueta formulario -->
+        <form>
+            <label for="user">Usuario
+                <br />
+                <input type="text" id="user">
+            </label>
+            <br />
+            <label for="password">Contraseña
+                <br />
+                <input type="password" id="password">
+                <br />
+            </label>
+            <br />
+            <button type="reset">
+                CANCELAR
+            </button>
+            <br />
+            <button type="submit">
+                ENVIAR
+            </button>
+        </form>
+        <!-- ETIQUETA SALTO DE LÍNEA -->
+            <br />
+
+        <!-- ETIQUETAS DE LISTA 
+        desordenada y ordenada-->
+        <!-- ETIQUETA ANCHOR -->
+        <ul>
+            <li>
+                <!-- navegar hacia internet -->
+                <a href="https://www.google.com">item</a>
+            </li>
+            <li>
+            <!-- navegar dentro del documento -->
+                <a href="#primer">
+                    item
+                </a></li>
+            <li>item</li>
+        </ul>
+        
+        <ol>
+            <!-- navegar dentro del sitio entre documentos -->
+            <li>
+                <a href="./pages/pagina.html">
+                    item
+                </a>
+            </li>
+            <li>item</li>
+            <li>item</li>
+        </ol>
+
+    </body>
+</html>
+

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css">
+    <!-- la etiqueta style nos deja escribir css en el head del documento -->
+    <style>
+        /* selector {
+            regla : valor;
+        } */
+
+        /* 
+        id > class > etiqueta
+        */
+        img {
+            width: 300px;
+        }
+        article {
+            text-align: center;
+        }
+        .dark {
+            background-color: rgb(67, 61, 61);
+        }
+
+        .dark img {
+            width: 500px;
+        }
+        /* continuar en la página del autor */
+    </style>
+    <title>Libros</title>
+</head>
+<body>
+    <header>
+        <h1>
+            Título
+        </h1>
+        <span>soy la página de libros</span>
+        <nav>
+            <ul>
+                <li>
+                    <a href="../index.html">Home</a>
+                </li>
+                <li>
+                    <a href="#">Libros</a>
+                </li>
+                <li>
+                    <a href="./autor.html">Autor</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <article>
+                <img src="../assets/libro-1.jpg" alt="portada del primer libro"  id="primer" class="primera">
+            <figure>
+                <!-- el atributo CLASS asigna una clase a un elemento, que se puede compartir con otros y se usa para identificarlo desde el css -->
+                <img src="../assets/libro-1.jpg" alt="portada del primer libro"  id="primer" class="primera">
+                <figcaption>libro 1: El Camino de los Reyes</figcaption>
+                </figure>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae labore vero itaque quaerat natus voluptates.</p>
+            </article>
+            <article class="dark">
+                <figure>
+                    <img src="../assets/libro-2.jpg" alt="portada del segundo libro" class="primera">
+                    <figcaption>libro 2: Palabras Radiantes</figcaption>
+                </figure>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae labore vero itaque quaerat natus voluptates.</p>
+            </article>
+        </section>
+    </main>
+    <footer>
+        todos los derechos reservados  ™lautaroRocha 2023
+    </footer>
+</body>
+</html>

@@ -1,0 +1,35 @@
+/* reset css /// el más básico, si quieren uno más potetne, investiguen normalize.css
+selector global --- todos los elementos
+*/
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    background-color: rgb(236, 236, 170);
+}
+
+footer {
+    background-color: plum;
+    color: rgb(67, 56, 56);
+    text-align: center;
+    margin-top: 300px ;
+}
+main{
+    text-align: center;
+}
+article {
+    background-color: rgb(189, 243, 243);
+    text-align: center;
+}
+img {
+    width: 250px;
+    border: 5px black dashed;
+    border-radius: 25px;
+    margin-bottom: 50px;
+    padding-right: 30px;
+    padding-left: 50px;
+    padding-top: 50px;
+}

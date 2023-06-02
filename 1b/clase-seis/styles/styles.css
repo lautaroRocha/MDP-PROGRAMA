@@ -1,0 +1,71 @@
+cla*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.tic-tac{
+    /* Declaro un contenedor como grilla */
+    display: grid;
+    /* declaro la plantilla de columnas */
+    /* grid-template-columns: 70px 100px 70px; */
+    /* si usamos siempre la misma medida, podemos
+    usar la función repeat */
+    grid-template-columns: repeat(3, 70px);
+    /* declaro la plantilla de filas */
+    grid-template-rows: repeat(3, 70px);
+}
+
+.tic{
+    background-color: beige;
+    border: 2px solid black;
+
+    display: grid;
+    place-items: center;
+}
+
+.site{
+    padding: 1rem;
+    width: 80%;
+    height: 30rem;
+    background-color: rgba(255, 0, 0, 0.289);
+    display: grid;
+    /* espacio entre columnas */
+    column-gap: 2rem;
+    /* espacio entre filas */
+    row-gap: .5rem;
+    grid-template-areas: 'header header header header'
+                        'aside main main main'
+                        'aside main main main'
+                        'aside footer footer footer';
+}
+
+.header{
+    grid-area: header;
+}
+
+.aside{
+    grid-area: aside;
+}
+
+.main{
+    grid-area: main;
+}
+
+.footer{
+    grid-area: footer;
+}
+
+.site>div{
+    background-color: rgba(255, 255, 255, 0.577);
+    border: 1px solid black;
+    display: grid;
+    place-items: center;
+}

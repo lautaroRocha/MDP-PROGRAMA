@@ -1,0 +1,70 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: center;
+    gap: 5rem;
+}
+
+/* 
+    el eje principal siempre va en la misma dirección
+    que el contenedor y el secundario en la opuesta
+*/
+.flex-container{
+    border: 1px solid green;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 10rem;
+    width: 80%;
+
+    /* acomodar en el eje principal */
+    justify-content: space-evenly ;
+
+    /* acomodar en el eje secundario */
+    align-items: center;
+
+    /* para separar los hijos del flex entre sí */
+    gap: 1rem;
+}
+
+.flex-item{
+    width: 3rem;
+    height: 3rem;
+    background-color: plum;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.bottom{
+    align-self: flex-end;
+}
+.top{
+    align-self: flex-start;
+}
+
+.flex-container-two{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid red;
+    gap: 1rem;
+    width: 50%;
+    margin-bottom: 10rem;
+    align-items: center;
+}
+
+.flex-container-two>.left{
+    align-self: start;
+}
+
+.flex-container-two>.right{
+    align-self: end;
+}

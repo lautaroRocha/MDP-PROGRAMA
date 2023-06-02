@@ -1,0 +1,68 @@
+*, *::before, **::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 2rem;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    border: 3px solid salmon;
+    width: 80%;
+    padding: 1rem;
+}
+main{
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+    width: 100%;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 3px solid salmon;
+    width: 35%;
+    margin-inline: auto;
+    gap: 1rem;
+    padding: 3rem 0;
+    min-width: 0px;
+}
+form input{
+    padding: 15px;
+    border-radius: 5px;
+}
+form button{
+    margin-top: 2rem;
+    padding: .5rem 2rem;
+}
+.agenda{
+    border: 3px solid salmon;
+    margin: 1rem auto;
+    width: 55%;
+    min-width: 500px;
+}
+.contacto{
+    border: 3px solid rgb(233, 182, 87);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    justify-content: space-evenly;
+    margin: 1rem;
+}
+.contacto>span, .contacto>h3{
+    width: 33.3%;
+    text-align: center;
+    font-size: 1rem;
+    white-space: nowrap;
+}

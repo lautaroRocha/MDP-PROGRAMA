@@ -1,0 +1,29 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.flex{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: auto;
+    margin-top: 10vh;
+    width: 70%;
+}
+
+
+.flex-item{
+    background-color: blueviolet;
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    color: white;
+    font-weight: bolder;
+    font-size: 2rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

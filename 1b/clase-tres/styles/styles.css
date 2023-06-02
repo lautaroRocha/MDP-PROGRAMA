@@ -1,0 +1,151 @@
+/* AT RULE 
+    nos sirven para extender las capacidades de CSS
+*/
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=MedievalSharp&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Ubuntu:wght@300;400;500;700&display=swap');
+
+*, *::before, *::after{
+    /* reset css */
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+/* el PSEUDOELEMNTO RAÍZ representa
+la raíz de nuestro proyecto, en este caso
+es lo mismo que la etiqueta html 
+
+usamos este elemento para definir variables de CSS
+*/
+:root{
+    background-color: black;
+    /* as variables se marcan con un '--' inicial */
+    --negro : rgb(0, 0, 0);
+    --gris : rgba(255, 255, 255, .5);
+    --violetaClaro : rgba(194, 153, 232, 0.7);
+    --violeta : rgb(60, 6, 110);
+    --azulFocus : rgb(11, 85, 243);
+    --amarillo : rgb(215, 215, 74);
+}
+
+
+body{
+    /* con CSS puedo poner poner imagens de fondo locales (o sea, que están en una carpeta del proyecto) o directamente desde una URL */
+    background-image: url('../assets/background.jpg');
+    /* la propiedad OPACITY marca la opacidad de un elemento */
+    /* opacity: .4; */
+    min-height: 100vh;
+    min-width: 100vw;
+    /* el contenido que se desborda de su caja se llama OVERFLOW */
+    overflow-x: hidden;
+    /* POSITION es un atributo que nos ayuda a indicar como se ubica un elemento en el flujo del documento,
+    ABSOLUTE saca a un elemento del flujo normal
+    y RELATIVE lo pone en el flujo normal */
+    position: absolute;
+    top: 0;
+}
+
+.cabecera{
+    /* usamos las variables con la funcion var() */
+    color: var(--negro);
+    text-align: center;
+    background-color: var(--gris);
+    border-radius: 5px;
+    opacity: 1;
+    margin: auto;
+    margin-top: 15px;
+    width: 80%;
+}
+
+/* 
+    un PSEUDOELEMENTO es una ayuda para añadir contenido antes o después de un elemento html
+*/
+.cabecera>h1::before{
+    content: '🚀';
+    margin-right: 15px;
+}
+.cabecera>h1::after{
+    content: '🚀';
+    margin-left: 15px;
+}
+
+a{
+    color: var(--negro);
+    font-weight: bolder;
+    text-decoration: underline;
+}
+a:hover{
+    color: var(--azulFocus);
+}
+main{
+    text-align: center;
+}
+
+.formulario{
+    margin: auto;
+    margin-top: 100px;
+    background-color: var(--violetaClaro);
+    width: 70%;
+    height: 60vh;
+    padding: 50px 0;
+    font-weight: bold;
+    color: black;
+    border-radius: 5px;
+}
+/* para afectar a más de un selector
+con el mismo bloque de reglas
+los concatenamos con una coma */
+input, select{
+    margin: 5px 0 25px;
+    width: 50%;
+    height: 2rem;
+    padding: .5rem;
+    border-radius: 5px;
+    outline: none;
+    border: 2px solid ;
+}
+
+select{
+    height: 3rem;
+}
+
+input:focus, select:focus{
+    border: 2px solid var(--azulFocus);
+}
+
+/* PSEUDOCLASE 
+    las pseudoclases nos sirven para expandir las definiciones sobre nuestros elementos, es decir, indicar distintas reglas para distintos estados del elemento
+*/
+
+button{
+    margin-top: 25px;
+    background-color: var(--amarillo);
+    border: 1px solid var(--negro);
+    padding: .5rem 1.5rem;
+    border-radius: 35px;
+    /* la propiedad TRANSITION nos deja elegir otras propiedas que sabemos que van a cambiar, y decidir en cuanto tiempo y de que forma cambian */
+    transition: all .3s ease-in-out;
+}
+
+button:focus{
+    border: 2px solid var(--azulFocus);
+}
+
+button:hover{
+    cursor: pointer;
+    /* la propiedad TRANSFORM acepta 
+    distintas funciones que deforman un elemento
+    */
+    transform: scale(1.3);
+    float: left;
+}
+
+.pie{
+    background-color: var(--amarillo);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 3rem;
+    text-align: center;
+}
+

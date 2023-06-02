@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <!-- GOOGlE FONT -->
+                <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+                <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=MedievalSharp&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet"> -->
+        <link rel="stylesheet" href="./styles/styles.css">
+        <title>claseTRES</title>
+    </head>
+    <body>
+        <header class="cabecera">
+            <h1 class="titulo">Aprendé a programar</h1>
+            <h2>Unite a nuestra academia</h2>
+            <a href="./pages/flex.html">FLEX</a>
+        </header>
+        <main>
+            <form class="formulario">
+                <label for="name"> Nombre y Apellido :
+                    <br>
+                    <input type="text" id="name" required placeholder="Tu nombre..." class="seleccion">
+                </label>
+                <br>
+                <label for="mail" >Email :
+                    <br>
+                    <input type="email" id="mail" required placeholder="Tu email..." class="seleccion">
+                </label>
+                <br>
+                <label for="course"  required>Elige tu curso!
+                    <br>
+                    <select id="course" required class="seleccion">
+                        <option value="">...</option>
+                        <option value="web">FrontEnd Web</option>
+                        <option value="data">Data Science</option>
+                        <option value="back">Backend Web</option>
+                    </select>
+                </label>
+                <br>
+                <button type="submit">Registrarme</button>
+            </form>
+        </main>
+        <footer class="pie">
+            <span>
+                C © Academia Web - 2023
+            </span>
+        </footer>
+    </body>
+</html>

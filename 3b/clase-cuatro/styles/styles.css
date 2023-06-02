@@ -1,0 +1,58 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+h1{
+    margin: 1rem auto;
+    text-align: center;
+}
+
+.flex-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border: 2px salmon solid;
+    width: 70%;
+    height: 10rem;
+    margin: 1rem auto;
+    /* el EJE PRINCIPAL (main axis) va en la misma dirección que el contenedor */
+    justify-content: center;
+    gap: 1rem;
+    /*el EJE SECUNDARIO va en la dirección opuesta al contenedor  */
+    align-items: center; 
+}
+
+.flex-item{
+    background-color: plum;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.top{
+    align-self: flex-start;
+}
+
+.bottom{
+    align-self: flex-end;
+}
+
+
+.flex-container-two{
+    display: flex;
+    border: 2px solid green;
+    flex-direction: column;
+    width: 10rem;
+    height: 25rem;
+    margin: 1rem auto ;
+
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
