@@ -1,0 +1,86 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+
+.position{
+    border: 1px solid black;
+    width: 10rem;
+    height: 5rem;
+    background-color: greenyellow;
+    margin-top: 3rem;
+    position: relative;
+}
+.position>h1{
+    position: absolute;
+    background-color: transparent;
+    top: 5rem;
+    right: -3rem;
+    transition: top .5s ease-in-out;
+}
+
+.position:hover>h1{
+    top: 0rem;
+}
+
+
+.tic-tac{
+    margin-top: 10rem;
+    display: grid;
+    /* definir la plantilla de columnas */
+    /* grid-template-columns: 10rem 10vw 70px; */
+    grid-template-columns: repeat(3, 70px);
+    /* definir la plantilla de filas */
+    grid-template-rows: repeat(3, 70px);
+}
+
+.tic{
+    border: 2px solid black;
+    display: grid;
+    place-items: center;
+    background-color: bisque;
+}
+
+.site{
+    background-color: pink;
+    display: grid;
+    /* definimos la cuadrícula por nombre de area */
+    grid-template-areas: 'pepito pepito pepito pepito'
+                        'aside main main main'
+                        'aside main main main'
+                        'aside main main main'
+                        'foot foot foot foot';
+    width: 70%;
+    height: 20rem;
+    column-gap: 1.5rem;
+    row-gap: .5rem;
+    padding: 1rem;
+}
+
+.site>div{
+    border: 1px solid black;
+    display: grid;
+    place-items: center;
+}
+
+.header{
+    grid-area: pepito;
+}
+.main{
+    grid-area: main;
+}
+.aside{
+    grid-area: aside;
+}
+.footer{
+    grid-area: foot;
+}
