@@ -1,0 +1,45 @@
+*, *::before, *::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10rem;
+    padding: 3rem;
+}
+
+.flex>ul{
+    list-style: none;
+    gap: 1rem;
+    display: flex;
+    width: 50%;
+    height: 100%;
+    border: 1px solid black;
+}
+
+li{
+    border: 1px solid black;
+    height: auto;
+}
+
+.crecer{
+    flex: 3;
+}
+
+
+
+div{
+    background-color: greenyellow;
+    border: 1px solid black;
+    margin: 1rem;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 10rem 3rem 10rem;
+}
