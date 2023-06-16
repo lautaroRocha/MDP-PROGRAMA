@@ -19,6 +19,18 @@ div{
     margin: 1rem;
 }
 
+h1:hover{
+    color: red;
+}
+.good::before{
+    content: '✅';
+    
+}
+.bad::before{
+    content: '❌';
+}
+
+
 h2::after{
     content: 'esta es una etiqueta';
     background-color: plum;
