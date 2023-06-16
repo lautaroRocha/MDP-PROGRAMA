@@ -33,7 +33,9 @@ body{
     font-size: 2rem;
     text-align: center;
 }
-
+span{
+    display: block;
+}
 .counter-btn{
     background-color: plum;
     padding: 1rem 3rem;
