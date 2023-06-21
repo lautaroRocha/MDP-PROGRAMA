@@ -139,12 +139,46 @@ parseInt(respuesta) + 1
 const firstName = prompt("Cuál es tu nombre?")
 const lastName = prompt('Cuál es tu apellido?')
 
-// alert('Hola, ' + firstName + ' ' +  lastName +', bievenidx!')
+alert('Hola, ' + firstName + ' ' +  lastName +', bievenidx!')
 
 //template string literals
 const age = prompt(`Hola, ${firstName} ${lastName}, bienvenidx! Cuál es tu edad?`)
 
 const result = alert(`${firstName} ${lastName} tienes ${age} años de edad, y el año próximo tendrás ${parseInt(age) + 1}`)
+
+
+
+////Un programa portero de bar
+
+
+
+//CONDICIONALES
+// son la manera de modificar el flujo
+//de ejecución de nuestro programa
+
+
+//si (condicion === true){
+    //orden
+//}y sino {
+        // otra orden
+//}
+        
+        
+const ageOfPerson = prompt('Buenas noches, decíme tu edad')
+
+const parsedAge = parseInt(ageOfPerson)
+///el operador >= devuelve true
+//si el miembro de la izquierda es 
+//mayor o igual al de al derecha
+if(parsedAge > 18){
+    alert('Puedes entrar')
+}else if(parsedAge === 18){
+    alert('Justito')
+}else{
+    alert('No puedes entrar')
+}
+
+
 
 //incrementar por uno ---> ++
 //disminuir por uno ---> --
