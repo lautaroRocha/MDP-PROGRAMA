@@ -1,6 +1,6 @@
 let amountOfBoludos = 0;
 const result = document.querySelector('#result')
-const btn = document.querySelector('#counter-btn')
+const btn = document.querySelector('btn')
 
 const addOneBoludo = () => {
     amountOfBoludos++;
