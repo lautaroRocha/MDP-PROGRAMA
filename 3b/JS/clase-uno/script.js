@@ -96,12 +96,47 @@ Boolean( uno === unoString)
   //y el método alert() para notificar al usuario
 
 
-const firstName = prompt('¿Cuál es tu nombre?')
-const lastName = prompt('¿Cuál es tu apellido?')
+//const firstName = prompt('¿Cuál es tu nombre?')
+//const lastName = prompt('¿Cuál es tu apellido?')
 //template string literal
-const message = `Bienvenido ${firstName} ${lastName}! Me alegra tenerte de vuelta.`
+//const message = `Bienvenido ${firstName} ${lastName}! Me alegra tenerte de vuelta.`
 
-alert( message )
+//alert( message )
+
+
+//PROGRAMA PORTERO
+////va a solicitar la edad de un usuario,
+//y va a responder con un mensaje acorde
+
+//guardamos valores significativos
+//en constantes para evitar los MAGIC NUMBERS/MAGIC STRINGS
+const mensajePositivo = 'Podés pasar';
+const mensajeNegativo = 'Todavía no podés pasar';
+const mensajeJocoso = 'Justito'
+
+const edad = prompt('¿Cuál es tu edad?');
+const parsedEdad = parseInt(edad)
+const mayoriaDeEdad = 18;
+
+//PSEUDOCODIGO DE ESTRUCTURA CONDICIONAL
+
+//si es mayor de edad
+    //mensajePositivo
+//sino
+    //mensajeNegativo
+
+// '<=' menor o igual a 
+// '>=' mayor o igual a
+
+if(parsedEdad > mayoriaDeEdad){
+    alert(mensajePositivo)
+}else if(parsedEdad === mayoriaDeEdad){
+    alert(mensajeJocoso)
+}else{
+    alert(mensajeNegativo)
+}
+
+
 
 
 
