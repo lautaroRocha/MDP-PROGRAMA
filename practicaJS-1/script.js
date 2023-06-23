@@ -1,3 +1,50 @@
+//condicionales
+
+//if..else ---> una cosa, y todo lo que no es esa cosa
+//if...else if...*n..else ---> una cosa, o la otra, o todo lo que es ninguna de esas
+
+//el switch res otra estructura condicional
+//en la que analizamos posibles casos
+//de una variable
+
+let fruta = 'BANANA'
+
+
+///distinguir entre mayus y minus es ser CASE_SENSITIVE
+//así como con parseInt() transformamos
+//un string en un numero, todos los datos string
+//pueden acceder a los métodos de su tipo.
+//el método toLowerCase() transforma un string
+//en minúsucula, su contrario sería toUpperCase()
+
+switch(fruta.toLowerCase()){
+  case 'manzana':
+    console.log('La manzana es roja')
+    //es importante usar la orden 'break' para
+    //terminar la ejecución del switch al momento
+    //de cumplirse un caso
+    break;
+  case 'banana':
+    console.log('La banana es amarilla')
+    break;
+  case 'sandía':
+    console.log('la sandía es verde')
+    break;   
+  case undefined:
+    console.log('Elegí una fruta')
+    break;
+  default:
+      console.log('No conozco esa fruta')
+      break;
+}
+
+
+
+
+
+
+
+
 /*
 Desarrollá un programa
 que solicite al usuario
@@ -17,6 +64,19 @@ y diga si el número es PAR o IMPAR. Si el número ingresado
 está por fuera del rango / no es válido
 deberá salir un mensaje de error
 */
+
+let numeroDado = 200;
+
+
+if( numeroDado >= 1 && numeroDado <= 100 ){
+    if(numeroDado % 2 === 0){
+      console.log('es par')
+    }else{
+      console.log('es impar')
+    }
+}else{
+  console.log('El número no es válido')
+}
 
 
 
