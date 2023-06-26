@@ -56,7 +56,17 @@ el programa debe mostrar en un mensaje
   - Año de nacimiento
 */
 
+let nombre = prompt("Ingrese su nombre")
+let edad = prompt("Ingrese su edad")
+let edadParseada = parseInt(edad)
+let añoActual = 2023
 
+if( typeof edadParseada === 'NaN' ){
+    alert("ingrese el año correctamente")
+}else{
+    let añoNacimiento = añoActual - edadParseada
+    alert("Tu año de nacimiento es " + añoNacimiento)
+}
 
 /*
 Desarrollá un programa que pida un número de 1 al 100
