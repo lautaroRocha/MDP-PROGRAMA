@@ -45,6 +45,57 @@
 
 // console.log(frutas, eliminado)
 
+
+
+// la ITERACIÓN es ejecutar de manera repetida y controlada un algoritmo. En JS tenemos tres estructuras básicas para hacer BUCLES / LOOPS.
+
+//for 
+/////primero declramos un iterador (contador de vueltas)
+/////después la condición que mientras sea TRUE va a ejectur el bucle
+/////por último, la operación a realizar cada vez que termine un ciclo
+//for(let i = 0; i <= 18; i++){
+//  console.log(`Voy ${i} vueltas`)
+//}
+
+
+for(let i = 0; i < frutas.length; i=+1){
+    console.log(`Voy ${i} vueltas`)
+    if(frutas[i] === 'banana'){
+      console.log('Mi fruta favorita!!!')
+    }
+    console.log(`La fruta en la posición ${i} es ${frutas[i]}`)
+  }
+  
+  
+  
+  //BUCLE DO WHILE
+  
+  //este bucle ejectura como mínimo una vez su algoritmo, después de la cual revisa una condición pasada entre parentésis a la orden 'while', si se evalúa a TRUE, seguirá corriendo hasta que de FALSE
+  
+  /*
+  let i = 0;
+  
+  do {
+     i += 2;
+     console.log(i);
+   } while (i < 2000);
+  */
+  //
+  
+  //el bucle WHILE ejecuta su algoritmo mientras la condición que recibe entre parentésis sea verdadera, y realiza la comprobación ANTES de correr por primera vez
+  /*
+  let i = 0;
+  let noAceptado =  true;
+  
+  while(noAceptado){
+    i++;
+    if(i === 15){
+      noAceptado = false;
+    }
+    console.log(i)
+  }
+  */
+
 const movies = [];
 
 for(let i=0; movies.length < 4; i++){
