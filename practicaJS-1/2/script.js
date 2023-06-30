@@ -1,21 +1,3 @@
-class Friend{
-    constructor(name, job){
-        this.name = name;
-        this.job = job;
-    }
-    goToWork(){
-        console.log(`Soy ${this.name} y trabajo de ${this.job}`)
-    }
-    
-}
-
-const friends = [ new Friend('Raúl', 'albañil'), 
-                new Friend('Sofía', 'programadora'),
-                new Friend('Julieta', 'tester'),
-                new Friend('David', 'mozo'),
-                new Friend('Julián', 'SRE')]
-
-
 ////escribí una función calcularAñosPerro()
 ///que tome dos parametros (nombre y añoDeNacimiento)
 ///y muestre por consola un mensaje 'nombre tiene X años en años de humano, y X años en años de perro'
@@ -41,3 +23,8 @@ const friends = [ new Friend('Raúl', 'albañil'),
 //si ambas string son igualmente largas, devuelve un mensaje 'They're the same'
 //si una de las string no es válida. devuelve un mensaje 'One of the values is not a string'
 //si ambos valores son inválidos, devuelve 'None of the values is a string'
+
+
+//escribí una función countVowels() que reciba un string
+//y devuelva ( decidí vos como mostrar el resultado )
+//la cantidad de vocales en la palabra
