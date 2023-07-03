@@ -110,8 +110,9 @@ removeButton.onclick = () => {
 //un rework para una sintaxis 
 //más resumida y moderna
 openButton.onclick = () => {
-    let { textContent } = openButton
-    textContent.trim() === 'Abrir' ? textContent = 'Cerrar' : textContent = 'Abrir';
+    //desestrucuración de un objeto
+    const { textContent } = openButton
+    textContent.trim() === 'Abrir' ? openButton.textContent = 'Cerrar' : openButton.textContent = 'Abrir';
     popUp.classList.toggle('closed')
 }
 
