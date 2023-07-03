@@ -1,0 +1,28 @@
+button{
+    background-color: greenyellow;
+    padding: .5rem 2rem;
+    border-radius: 25px;
+    font-weight: bolder;
+    cursor: pointer;
+    caret-color: transparent;
+}
+button:active{
+    background-color: rgb(47, 199, 47);
+}
+.pop-up{
+    border: 1px solid grey;
+    border-radius: 2px;
+    width: 80%;
+    margin: 5rem auto;
+    height: 30vh;
+    display: grid;
+    place-items: center;
+}
+
+.opened{
+    display: grid;
+}
+
+.closed{
+    display: none;
+}
