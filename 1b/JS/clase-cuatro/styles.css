@@ -17,12 +17,17 @@ button:active{
     height: 30vh;
     display: grid;
     place-items: center;
-}
 
-.opened{
-    display: grid;
 }
 
 .closed{
     display: none;
+}
+
+.big{
+    transform: scale(2);
+}
+
+.yellow{
+    background-color: yellow;
 }
