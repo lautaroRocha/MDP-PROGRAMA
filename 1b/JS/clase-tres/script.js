@@ -1,146 +1,141 @@
-//FUNCIONES Y OBJETOS EN JS
-
 //functions (params, return. anonymus-arrow)
-   //una función es un conjunto de instrucciones
-//que dejamos asociadas a una clave y podemos invocar em
+
+//una función es un conjunto de instrucciones
+//que dejamos asociadas a una clave y podemos invocar en
 //cualquier momento (mientras estemos dentro de su scope/ámbito)
+///en vex de escribir las instrucciones en el scope global de mi programa, es mejor guardarlas en funciones que sean controlables y reutilizables
 
-function miPrimeraFuncion(){
-    console.log('Esta es mi primera función')
-  }
-  
-  //cuando declaramos una función, podemos nombrar parámetros entre las parentésis y usarlos en el algoritmo
-  
-  ///(en este ejemplo hacemos un condicional en una sola línea con un operador ternario)
-  function miSegundaFuncion(ocasion){
-    console.log(`Esta es mi ${ocasion 
-                //? ocasion : "primera"
-                } función`)
-  }
-  
-  function sumaDeDosEnteros(a, b){
-    return a + b
-  }
-  
-  function porcentageOf(a , b){
-    return a * b / 100
-  }
-  
-  //las funciones de flecha son una forma más práctica de declarar funciones. Asociamos una constante a una funcion anonima ( ()=>{} ) y luego la invocamos como a cualquier otra. también puede tomar parámetros.
-  const funcionFlecha = () => {
-    
-  
-    console.log('Por ahora solo un console log')
-  }
-  
-  //invocar función
-  miPrimeraFuncion()
-  
-  miSegundaFuncion('segunda')
-  
-  porcentageOf(100, 25)
-  
-  let result = sumaDeDosEnteros(5, 3)
-  
-  funcionFlecha()
+let cualquiera = 'cualquiera'
 
-  //objects
-///los objetos son una estructura de datos muy usado en JS
-//de hecho, por su sistema de prototipado
-///TODO ES UN OBJETO EN JAVASCRIPT
+///una funcion se declara con la palabra clave function, el nombre de la funcion, unos parentesis (), y unas llaves {} que marcan su scope. las funciones no son ejectuadas cuando se declaran, sino solamente cuando se invocan.
+function mostrarMensaje(){
+  //una funcion tiene su propio scope
+  //por lo que puede redeclarar
+  //variables del ambito global o acceder a ellas
+  let cualquiera = 'otro valor'
+  function otra(){
+    console.log(cualquiera)
+  }
+  otra()
+}
 
-///los 'objetos literales' son las declaraciones que armamos a medida en nuestro código
+//mostrarMensaje()
+//console.log(cualquiera)
+
+///las funciones pueden recibir parametros, que podemos nombrar de cualquier manera en su decalración y completar al invocarlas.
+
+function sumarDosNumeros( 
+  //las parentesis son el lugar de
+  //la función que puede tomar los PARAMETROS
+  n1, n2){
+  //si quiero almacenar el resultado de una
+  //funcion en una variable, lo hago con la 
+  //palabra clave return
+  //return también CORTA la función
+  
+  //uso del return para manejo de errores
+  if(n1 === undefined || n2 === undefined){
+      return 'no se puede, pasa por favor dos numeros enteros'
+  }  
+  return n1 + n2
+  //este código es inalcanzable, porque
+  //está después de un return en su mismo scope
+  console.log('unreacheble')
+}
 
 
-const objetoJS = {
-    clave : 'valor', 
-    //estas son propiedades
-    lang : 'JS',
-    kind :  'literal',
-    array : [1, 2, 3],
-    mutable : true,
-    son: {
-      friend : 'John',
-      pet : 'cat',
-      skills : {
-        painting : 5,
-        drawing : 6,
-        sport : 8
-      }
-    },
-    //esto es un método
-    sayHi : () => {
-      console.log("I'm a JS object")
+const resultadoUno = sumarDosNumeros(1, 2);
+
+///estas son las funciones flechas, una adición a JS que nos da 
+///una sintaxis más cómoda para la declaración de funciones
+///si está en uan sola línea, tiene un return implicito
+const funcionFlecha = ( num ) => {
+  return num + 1
+} 
+
+const funcionFlechaReturnImplicito = num => num + 1
+
+const resultado = funcionFlecha(5)
+
+const resultadoUnaLinea = funcionFlechaReturnImplicito(7)
+
+
+//objects
+///un objeto es una ESTRUCTURA DE DATOS que forma una lista con claves
+const objeto = {
+  ///la clave la podemos escribir como un nombre o con comillas
+  //el valor siempre tiene que ser un tipo o una estructura de datos
+  //los valores de un objeto se llaman propiedades cuando representan justamente valores
+  clave : 'valor', 
+  otraClave : [1 , 2, 3],
+  //y metodos cuando representan funciones
+  otroValor : () => {},
+  hijo : {
+    nombre : 'Nombre de Hijo',
+    amigo : {
+      nombre : 'Nombre de Amigo',
+      edad : 15
     }
   }
-  
-  
-  //dot/bracket notation
-  // con la DOT NOTATION puedo acceder a las propiedas/metodos y concatenarlos.
-  objetoJS.son.skills.sport
-  
-  // con la BRACKET NOTATION hacemos lo mismo, pero podemos pasar valores y no los nombres de las propiedas como si fueran variables
-  objetoJS.son.skills['sport']
-  
-  //constructors based on class
-    ///una clase es una plantilla para un objeto. la declaramos con la palabra clave class e INSTANCIAMOS ( o sea, hacemos objetos de esa clase). Esto sucede a tráves de su método constructor
-  
-  
-  //this es una BINDING WORD que vincula con la instancia actual del objeto
-  
-  class Persona {
-     constructor(nombre, profesion) {
-      this.nombre = nombre;
-      this.profesion = profesion;
-    }
-     sayHi() {
-      console.log('Hola, soy ' + this.nombre + " y soy " + this.profesion)
-    }
+}
+  //JS objects are dynamic
+//los objetos en JS son dinámicos y puedo cambiar el valor de sus calves en cualquier momento
+ ///objeto.clave = 'nuevoValor'
+//además, si asigno valor a una clave inexistente, CREO esa clave en el objeto
+  ///objeto.trabajo = 'albañil'
+
+   ///console.log(objeto)
+
+//let queQuieroSaber = 'edad'
+  //dot notation / bracket notation
+  //dot ---> static
+/// que la dot notation sea estática significa que le tengo que pasar
+//el nombre de las claves 
+    ///  ----> esto no es válido porque no es el nombre de la clave objeto."hijo"
+ // objeto.hijo.amigo.edad
+
+  //bracket ---> dynamic
+    //la bracket notation es DINAMICA, o sea que puedo pasar una expresion que se evalúa para encontrar una clave igual
+ // let numero = 1
+  //usamos un operador ternario para hacer un condicional dentro de unas brackets
+ // objeto.hijo["amigo"][numero > 3 ? 'edad' : 'nombre']
+
+
+//class - instanciate classes
+
+//this es la BINDING WORD de javascript
+
+class Persona {
+  constructor(nombre, edad){
+    this.nombre = nombre,
+    this.edad = edad
   }
-  
-  const personaConstruida = new Persona('Raúl', 'albañil')
-  
-  const otraPersona = new Persona('José', 'carpintero')
-  
-  console.log(personaConstruida.nombre)
-  
-  personaConstruida.sayHi()
-  otraPersona.sayHi()
-  
-  
-  const personaUno = {
-    nombre : 'Raúl',
-    edad : 35,
-    celular : 45616
+  saludar(){
+    console.log(`Hola! Soy ${this.nombre}`)
   }
-  
-  const personaDos = {
-    nombre : 'javier',
-    edad : 15,
-    celular : 4687465
+}
+
+
+//new es la palabra clave para instanciar una clase accediendo a su contractor
+const persona = new Persona('Lautaro', 25)
+const otraPersona = new Persona('Raúl', 45)
+const otraPersonaMas = new Persona('José', 15)
+
+persona.saludar()
+otraPersona.saludar()
+otraPersonaMas.saludar()
+
+
+const personaDeFuncion = createPerson('Lautaro', 25)
+
+const createPerson = (nombre, edad) => {
+  let persona = {}
+  persona.nombre = nombre;
+  persona.edad = edad;
+  persona.saludar = () => {
+    console.log(`Hola, soy ${nombre}`)
   }
-  
-  const personaTres = {
-    nombre : 'Ramón',
-    edad : 50,
-    celular : 56467897
-  }
-  
-  /*
-  console.log(personaTres.nombre)
-  personaTres.nombre = 'Julián'
-  console.log(personaTres)
-  */
-  
-  function crearContacto(nombre, apellido, numero){
-    let contacto = {};
-      contacto.nombre = nombre;
-      contacto.apellido = apellido,
-      contacto.numero = numero;
-    return contacto
-  }
-  
-  
-  const primerContacto = crearContacto('Julián', 'Olmo', 4564)
-  
-  console.log(primerContacto)
+  return persona
+}
+
+personaDeFuncion.saludar()
