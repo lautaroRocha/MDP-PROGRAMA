@@ -17,7 +17,6 @@ button:active{
     height: 30vh;
     display: grid;
     place-items: center;
-
 }
 
 .closed{
