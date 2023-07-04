@@ -32,6 +32,3 @@
 //add paragraph function
 
 //event listeners
-
-
-

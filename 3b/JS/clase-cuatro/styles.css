@@ -25,7 +25,7 @@ button:active{
 }
 
 .big{
-    transform: scale(2) translate(150px, -230px);
+    transform: scale(2);
 }
 
 .yellow{
