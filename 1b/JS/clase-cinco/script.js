@@ -101,6 +101,7 @@ function checkIfContactExists( obj ){
         //pushear a PHONEBOOK
         obj.add()
         updateDOM(obj)
+        toast(`He añadido a ${obj.name} a tus contactos`)
     }
 }
 
