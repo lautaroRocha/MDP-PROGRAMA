@@ -1,3 +1,34 @@
+function toast(txt, type){
+    if(type === 'error'){
+        Toastify({
+            text: txt,
+            duration: 3000,
+            close: true,
+            gravity: "top",
+            position: "right", 
+            stopOnFocus: true, 
+            style: {
+              background: "linear-gradient(to right, #e80e0e, #e8910e)",
+              fontFamily: "system-ui, Roboto"
+            }
+          }).showToast();
+    }else{
+        Toastify({
+            text: txt,
+            duration: 3000,
+            close: true,
+            gravity: "top",
+            position: "right", 
+            stopOnFocus: true, 
+            style: {
+              background: "linear-gradient(to right, #00b09b, #96c93d)",
+              fontFamily: "system-ui, Roboto"
+            }
+          }).showToast();
+    }
+}
+
+
 ///a partir del formulario, generar una instancia de la clase
 //Contact, añadirla al fin del array,y actualizar el DOM para que esté
 //sincronizado con el array PHONEBOOK
@@ -52,7 +83,7 @@ const createContact = (event) => {
         si una assertion o la otra es verdadera
     */
     if(!name || !tel || !mail ){
-        alert('Hubo un error verificando los datos')
+        toast('Ese contacto ya existe', 'error')
     }else{
         let newContact = new Contact(name, tel, mail)
         checkIfContactExists(newContact) 
@@ -64,7 +95,7 @@ const createContact = (event) => {
 //enviarlo al array
 function checkIfContactExists( obj ){
     if( PHONEBOOK.some( ( cntct ) => cntct.email === obj.email  ) ){
-        alert('Ese correo ya corresponde a un contacto')
+       toast('Ese correo ya corresponde a un contacto', 'error')
     }else{
         ///accedo a su método add, el cual lo
         //pushear a PHONEBOOK

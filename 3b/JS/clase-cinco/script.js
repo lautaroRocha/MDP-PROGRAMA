@@ -2,6 +2,37 @@
 //Contact, añadirla al fin del array,y actualizar el DOM para que esté
 //sincronizado con el array PHONEBOOK
 
+function toast(txt, type){
+    if(type === 'error'){
+        Toastify({
+            text: txt,
+            duration: 3000,
+            close: true,
+            gravity: "top",
+            position: "right", 
+            stopOnFocus: true, 
+            style: {
+              background: "linear-gradient(to right, #e80e0e, #e8910e)",
+              fontFamily: "system-ui, Roboto"
+            }
+          }).showToast();
+    }else{
+        Toastify({
+            text: txt,
+            duration: 3000,
+            close: true,
+            gravity: "top",
+            position: "right", 
+            stopOnFocus: true, 
+            style: {
+              background: "linear-gradient(to right, #00b09b, #96c93d)",
+              fontFamily: "system-ui, Roboto"
+            }
+          }).showToast();
+    }
+}
+
+
 class Contact {
     constructor(name, tel, email){
         this.name = name;
@@ -40,11 +71,12 @@ const checkIfContactAlreadyExists = ( contact ) => {
          //el método de array SOME devuelve TRUE cuando encuentra una coincidencia
         //en el array        
         if( PHONEBOOK.some( ctct => ctct.email === contact.email  ) ){
-            alert('Ese contacto ya existe')
+            toast('Ese contacto ya existe', 'error')
         }else{
             //enviarlo al array
             contact.add()
             updateDOM(contact)
+            toast(`He añadido a ${contact.name} a tus contactos`)
         }
 }
     
@@ -70,8 +102,12 @@ const createContact = (event) => {
     const email = emailInput.value;
 
     const newContact = new Contact(name, tel, email)
+    if(!name || !tel || !email){
+        toast('Los datos no son válidos', 'error')
+    }else{
+        checkIfContactAlreadyExists(newContact)
+    }
 
-    checkIfContactAlreadyExists(newContact)
 
     ///RESETEAR EL FORM
     document.querySelector('form').reset()
