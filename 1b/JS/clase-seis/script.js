@@ -105,9 +105,18 @@ function updateDOM(){
     //iterar sobre PHONEBOOK pasando
     //cada contacto como parámetro a esta función
     renewDOM()
+    
+    /*
     for(let i = 0; i<PHONEBOOK.length; i++ ){
         createContacDiv(PHONEBOOK[i])
     }
+    */
+
+    //el método forEach del prototipo Array 
+    //recorre todo el arreglo y ejecuta la misma función
+    //sobre cada elemento
+
+    PHONEBOOK.forEach( contacto => createContacDiv(contacto) )   
 
     //createContacDiv()
 }
