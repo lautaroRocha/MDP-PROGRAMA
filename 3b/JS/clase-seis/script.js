@@ -1,3 +1,4 @@
+
 function toast(txt, type){
     if(type === 'error'){
         Toastify({
@@ -30,49 +31,31 @@ function toast(txt, type){
 
 class Contact {
     constructor(name, tel, email){
-        this.name = name
-        this.tel = tel
-        this.email = email
+        this.name = name;
+        this.tel = tel;
+        this.email = email;
     }
     add(){
         PHONEBOOK.push(this)
     }
 }
 
-const PHONEBOOK = [];
-
 const STORAGE_KEY = 'PHONEBOOK';
 
-const addButton = document.querySelector('#add-btn');
+const PHONEBOOK = [];
+
 const nameInput = document.querySelector('#name')
 const telInput = document.querySelector('#tel')
-const mailInput = document.querySelector('#mail')
-const phonebookDOM = document.querySelector('#agenda')
+const emailInput = document.querySelector('#mail')
+const addBtn = document.querySelector('#add-btn')
+const phonebookDOM = document.querySelector('#agenda') 
 
-const createContact = (e) => {
-    e.preventDefault()
-  
-    const name = nameInput.value;
-    const tel = telInput.value;
-    const mail = mailInput.value;
-    
-    if(!name || !tel || !mail ){
-        toast('Ese contacto ya existe', 'error')
-    }else{
-        let newContact = new Contact(name, tel, mail)
-        checkIfContactExists(newContact) 
-    }
-
-    document.querySelector('form').reset()
-}
-
-function checkIfContactExists( obj ){
-    if( PHONEBOOK.some( ( cntct ) => cntct.email === obj.email  ) ){
-       toast('Ese correo ya corresponde a un contacto', 'error')
-    }else{
-        obj.add()
-        ///guardar en memoria del navegador
-        updateDOM()
+const checkIfContactAlreadyExists = ( contact ) => {
+        if( PHONEBOOK.some( ctct => ctct.email === contact.email  ) ){
+            toast('Ese contacto ya existe', 'error')
+        }else{
+            contact.add()
+            //persistir en storage
         ///el navegador cuenta con dos APIs de almacenamiento,
         //el sessionStorage y el localStorage. Ambos funcionan con
         //un sistema de clave valor, ambos solo pueden almacenar strings
@@ -92,87 +75,90 @@ function checkIfContactExists( obj ){
 
         //para guardar estructuras de datos como  strings usamos la interfaz JSON
         //y pasamos la estrucura como parámetro de su método stringify()
+
         localStorage.setItem(STORAGE_KEY, JSON.stringify(PHONEBOOK))
+
         //localStorage.getItem()
         //con este método vacíamos todo el storage
          //localStorage.clear()
          //localStorage.removeItem(key)
-        toast(`He añadido a ${obj.name} a tus contactos`)
-    }
+            updateDOM()
+            toast(`He añadido a ${contact.name} a tus contactos`)
+        }
 }
+    
+const createContact = (e) => {
+    e.preventDefault()
+
+    const name = nameInput.value;
+    const tel = telInput.value;
+    const email = emailInput.value;
+
+    if(!name || !tel || !email){
+        toast('Los datos no son válidos', 'error')
+    }else{
+        const newContact = new Contact(name, tel, email)
+        checkIfContactAlreadyExists(newContact)
+    }
+
+    document.querySelector('form').reset()
+}
+
+///hacer que esta funcion deje de tomar un parámetro
+//y cree los divs iterando el arreglo PHONEBOOK
 
 function updateDOM(){
-    //iterar sobre PHONEBOOK pasando
-    //cada contacto como parámetro a esta función
-    renewDOM()
-    
-    /*
-    for(let i = 0; i<PHONEBOOK.length; i++ ){
-        createContacDiv(PHONEBOOK[i])
-    }
-    */
-
-    //el método forEach del prototipo Array 
-    //recorre todo el arreglo y ejecuta la misma función
-    //sobre cada elemento
-
-    PHONEBOOK.forEach( contacto => createContacDiv(contacto) )   
-
-    //createContacDiv()
-}
-
-const renewDOM = () => {
     agenda.innerHTML = '<h2>Contactos</h2>'
+    // for(let i = 0; i<PHONEBOOK.length; i++){
+    //     createContactDiv(PHONEBOOK[i])    
+    // }
+    /// el método forEach del prototipo Array
+    ///toma una función como parámetro y la ejectura
+    //una vez sobre cada elemento del array
+    PHONEBOOK.forEach(contacto => createContactDiv(contacto) )
 }
 
-const createContacDiv = (obj) => {
+const createContactDiv = ( contact ) => {
+    const newContact = document.createElement('div')
 
-    const {name, tel, email} = obj
+    const {name, email, tel} = contact
 
-    let newContact = document.createElement('div')
     newContact.classList.add('contacto')
 
-    const nameNode = document.createElement('h3')
-    nameNode.textContent = name;
-    const telNode = document.createElement('span')
-    telNode.textContent = tel;
-    const mailNode = document.createElement('span')
-    mailNode.textContent = email;
+    const contactName = document.createElement('h3')
+    contactName.textContent = name
+    const contactMail = document.createElement('span')
+    contactMail.textContent = email
+    const contactTel = document.createElement('span')
+    contactTel.textContent  = tel;
 
-    newContact.appendChild(nameNode)
-    newContact.appendChild(mailNode)
-    newContact.appendChild(telNode)
+    newContact.appendChild(contactName)
+    newContact.appendChild(contactMail)
+    newContact.appendChild(contactTel)
 
-    
-    agenda.appendChild(newContact)
-} 
-
-
-addButton.onclick = (e) => {
-    createContact(e);
+    phonebookDOM.appendChild(newContact)
 }
 
+addBtn.addEventListener('click', createContact)
 
-///funcion que al inicar el programa revise el almacenamiento
+///una función que revise el storage
+//y si hay algo guardado lo use como valor
+//de PHONEBOOK y se ejecute al cargar la página
+
 const checkStorage = () => {
     const savedData = localStorage.getItem(STORAGE_KEY)
-    if(!savedData){
-        return 
-    }else{
-        //guardamos en una variable el resultado parseado de la información
-        //que teníamos en storage
-        const parsedData = JSON.parse(savedData);
-        //hacemos un push del spread de parsedData
-            //el spread operator ( ... ) me permite acceder por separado
-            //a todos los valores de un array
+        //solo entra al if si savedData es un valor TRUEISH (útil)
+    if(savedData){
+        const parsedData = JSON.parse(savedData)
         PHONEBOOK.push(...parsedData)
         updateDOM()
     }
 }
 
+///¿cómo hago que la función se ejecute sola
+//cada vez que cargo la página?
 
 window.onload = () => {
     checkStorage()
-}
-
+};
 

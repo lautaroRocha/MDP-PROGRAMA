@@ -51,6 +51,9 @@ form button{
     margin: 1rem auto;
     width: 55%;
     min-width: 500px;
+    max-height: 400px;
+    overflow: hidden;
+    overflow-y: scroll;
 }
 
 .contacto{
