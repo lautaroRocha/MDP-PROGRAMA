@@ -72,12 +72,12 @@ function checkIfContactExists( obj ){
     }else{
         obj.add()
         updateDOM()
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(PHONEBOOK))
         toast(`He añadido a ${obj.name} a tus contactos`)
     }
 }
 
 function updateDOM(){
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(PHONEBOOK))
     renewDOM()
     PHONEBOOK.forEach( contacto => createContacDiv(contacto) )   
 }
@@ -125,23 +125,50 @@ const createContacDiv = (obj) => {
 const editContact = (e) => {
     //la propiedad target de un evento hace referencia al nodo del DOM sobre el que impactó el evento
     //la propiedad nextSibling muestra al siguiente nodo hermano de un nodo
-    const {nextSibling} = e.target
+    // const {nextSibling} = e.target
     ///recibir mail 
-    const selectedMail = nextSibling.textContent
+    const selectedMail = e.target.nextSibling.textContent
+    const {selectedContact, selectedIndex} = findUserAndIndex(selectedMail)
     //tomar los nuevos datos (prompt)
     const {newName, newEmail, newTel} = askNewData()
-    //encontrar el item del array con ese mail para guardar los datos
-    const selectedContact = PHONEBOOK.find( ( person ) => person.email === selectedMail )
-    //encontrar el índice del contacto para editarlo
-    const selectedIndex = PHONEBOOK.indexOf(selectedContact)
     //actualizar el array
     PHONEBOOK[selectedIndex].name = newName.trim() ? newName : selectedContact.name
     PHONEBOOK[selectedIndex].email = newEmail.trim() ? newEmail : selectedContact.email
     PHONEBOOK[selectedIndex].tel = newTel.trim() ? newTel : selectedContact.tel
     //actualizar el storage
     //actualizar el dom 
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(PHONEBOOK))
     updateDOM()
+}
+
+
+
+
+
+const deleteContact = (e) => {
+    ///recibir mail 
+    const selectedMail = e.target.previousSibling.textContent;
+    const {selectedContact, selectedIndex} = findUserAndIndex(selectedMail)
+    const confirmation = confirm(`¿Seguro que quieres borrar a ${selectedContact.name} de tus contactos? `)
+    if(confirmation){
+        //y eliminarlo
+        //actualizar el array
+        PHONEBOOK.splice(selectedIndex, 1)
+        //actualizar el storage
+        //actualizar el dom 
+        updateDOM()
+    }
+
+}
+
+function findUserAndIndex(mail){
+    //encontrar el item del array con ese mail para guardar los datos
+    const selectedContact = PHONEBOOK.find( ( person ) => person.email === mail )
+    //encontrar el índice del contacto para editarlo
+    const selectedIndex = PHONEBOOK.indexOf(selectedContact)
+    return {
+        selectedContact : selectedContact, 
+        selectedIndex : selectedIndex
+    }
 }
 
 function askNewData(){
@@ -154,25 +181,6 @@ function askNewData(){
         newEmail : newEmail,
         newTel : newTel
     }
-}
-
-const deleteContact = (e) => {
-    ///recibir mail 
-    const selectedMail = e.target.previousSibling.textContent;
-    //encontrar el item del array con ese mail 
-    const selectedContact = PHONEBOOK.find(( contacto ) => contacto.email === selectedMail)
-    const confirmation = confirm(`¿Seguro que quieres borrar a ${selectedContact.name} de tus contactos? `)
-    if(confirmation){
-        //y eliminarlo
-        //actualizar el array
-        const selectedIndex = PHONEBOOK.indexOf(selectedContact)
-        PHONEBOOK.splice(selectedIndex, 1)
-        //actualizar el storage
-        //actualizar el dom 
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(PHONEBOOK))
-        updateDOM()
-    }
-
 }
 
 const checkStorage = () => {
