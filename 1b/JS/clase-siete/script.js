@@ -156,12 +156,23 @@ function askNewData(){
     }
 }
 
-const deleteContact = () => {
+const deleteContact = (e) => {
     ///recibir mail 
-    //encontrar el item del array con ese mail y eliminarlo
-    //actualizar el array
-    //actualizar el storage
-    //actualizar el dom 
+    const selectedMail = e.target.previousSibling.textContent;
+    //encontrar el item del array con ese mail 
+    const selectedContact = PHONEBOOK.find(( contacto ) => contacto.email === selectedMail)
+    const confirmation = confirm(`¿Seguro que quieres borrar a ${selectedContact.name} de tus contactos? `)
+    if(confirmation){
+        //y eliminarlo
+        //actualizar el array
+        const selectedIndex = PHONEBOOK.indexOf(selectedContact)
+        PHONEBOOK.splice(selectedIndex, 1)
+        //actualizar el storage
+        //actualizar el dom 
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(PHONEBOOK))
+        updateDOM()
+    }
+
 }
 
 const checkStorage = () => {
