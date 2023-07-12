@@ -61,10 +61,34 @@ form button{
     gap: 3rem;
     justify-content: space-evenly;
     margin: 1rem;
+    position: relative;
 }
 .contacto>span, .contacto>h3{
     width: 33.3%;
     text-align: center;
     font-size: 1rem;
     white-space: nowrap;
+}
+
+.contacto>button{
+    position: absolute;
+    top: -2rem;
+    padding: .5rem;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    display: none;
+    cursor: pointer;
+}
+.contacto:hover>button{
+    display: block;
+}
+
+.contacto>.edit-btn{
+    left: 15%;
+    background-color: rgba(107, 107, 233, 0.75);
+}
+
+.contacto>.delete-btn{
+    right: 15%;
+    background-color: rgba(220, 55, 55, 0.728);
 }
