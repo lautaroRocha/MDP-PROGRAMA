@@ -1,0 +1,37 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin: 5rem 0;
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid black;
+    border-radius: 5px;
+    width: 20%;
+    gap: 1rem;
+    height: 300px;
+}
+.card>img{
+    width: 80%;
+    height: auto;
+}
+
+button{
+    padding: 1rem;
+    background-color: rgb(182, 225, 38);
+    font-weight: bolder;
+    outline: none;
+    cursor: pointer;
+    border: none;
+    border-radius: 15px;
+}
